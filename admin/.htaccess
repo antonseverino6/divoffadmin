@@ -1,0 +1,15 @@
+RewriteEngine on
+
+RewriteRule ^(index|add_employee|search_count|backuptables|manage_account|login|work_exp|details|civil_service|other_info|info|set_service_record|gen_all_pdf)$ $1.php [NC,L]
+
+RewriteRule ^categories/(\w+)$ categories.php?category=$1 [NC,L]
+
+RewriteRule ^mydetails/([0-9-]+)$ mydetails.php?id=$1 [NC,L]
+
+RewriteRule ^service_card/([0-9-]+)$ service_card.php?id=$1 [NC,L] 
+
+RewriteRule ^gen_service_record/([0-9-]+)$ gen_service_record.php?id=$1 [NC,L] 
+
+RewriteRule ^gen_service_card_pdf/([0-9-]+)$ gen_service_card_pdf.php?id=$1 [NC,L]
+
+RewriteRule ^edit_page/([a-zA-Z_]+)/([0-9-]+) edit_page.php?edit=$1&id=$2 [NC,L]
