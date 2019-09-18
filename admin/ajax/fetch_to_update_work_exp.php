@@ -26,15 +26,15 @@
             <input type='hidden' name='tin_num' value='".$workexp_row['tin_num']."'>
             <div class='form-group'>
               <label for='comp-name' class='col-form-label'>Station/Place of Assignment<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='comp_name' id='edit-comp-name' value='".$workexp_row['comp_name']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='comp_name' id='edit-comp-name' value='".$workexp_row['comp_name']."' autocomplete='off'>
             </div>
             <div class='form-group'>
               <label for='status' class='col-form-label'>Status<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='status' id='edit-status' value='".$workexp_row['status']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='status' id='edit-status' value='".$workexp_row['status']."' autocomplete='off'>
             </div>
             <div class='form-group'>
               <label for='designation' class='col-form-label'>Designation<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='designation' id='edit-designation' value='".$workexp_row['designation']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='designation' id='edit-designation' value='".$workexp_row['designation']."' autocomplete='off'>
             </div>            
             <div class='form-group'>
               <label for='salary' class='col-form-label'>Salary<span class='required-info'> *</span></label>
@@ -42,7 +42,7 @@
             </div>
             <div class='form-group'>
               <label for='branch' class='col-form-label'>Branch<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='branch' id='edit-branch' value='".$workexp_row['branch']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='branch' id='edit-branch' value='".$workexp_row['branch']."' autocomplete='off'>
             </div>
         </div>
 

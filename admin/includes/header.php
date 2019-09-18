@@ -293,7 +293,15 @@
 
       .required-info {
         color: #ff3333;
-      }            
+      }        
+
+      .upperCase {
+        text-transform: uppercase;
+      }
+
+      input.notEmpty {
+        background-color : rgb(232, 240, 254); 
+      }          
 
   </style>
 

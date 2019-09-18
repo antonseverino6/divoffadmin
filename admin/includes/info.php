@@ -147,7 +147,7 @@ class Info {
 
 		$result = $db->query("SELECT id FROM info WHERE age BETWEEN $min and $max");
 
-		echo $result->num_rows;
+		return $result->num_rows;
 	}		
 
 

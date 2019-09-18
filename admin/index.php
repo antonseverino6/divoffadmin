@@ -35,8 +35,11 @@
 -->
 
           <!-- Content Row -->
+          <!------------------------------------------ START OF 1ST ROW ------------------------------------------>
           <div class="row">
 
+
+            <!-- START OF 1ST COLUMN IN 1ST ROW -->
             <div class="col-xl-3 col-md-6 mb-4">
 
               
@@ -68,7 +71,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Male</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><span style="color: #1420C2;">Male</span></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $info->male_count(); ?></div>
                     </div>
                     <div class="col-auto">
@@ -88,7 +91,7 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Female</div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><span style="color: #FF1493;">Female</span></div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $info->female_count(); ?></div>
                     </div>
                     <div class="col-auto">
@@ -121,10 +124,10 @@
               </a>
               </div>
             </div>   
-
+            <!-- END OF 1ST COLUMN IN 1ST ROW -->
 
           
-
+            <!-- START OF 2nd COLUMN IN 1ST ROW -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -155,11 +158,12 @@
                 </div>
               </div>
             </div>
-
+            <!-- END OF 2nd COLUMN IN 1ST ROW -->
 <!--           </div>  
 
           <div class="row">  --> 
 
+            <!-- START OF 3rd COLUMN IN 1ST ROW -->
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -190,15 +194,18 @@
                 </div>
               </div>
             </div>
-
+            <!-- END OF 3rd COLUMN IN 1ST ROW -->
 
 
     
         </div>    
+        <!-- END OF 1st ROW -->
 
+        <!------------------------------------- START OF 2ND ROW -------------------------------------------------->
         <div class="row">
 
 
+            <!------------------------------------- AGE FOR BOTH GENDERS --------------------------------------------------> 
 
             <div class="col-xl-4 col-lg-5">
               <div class="card shadow mb-4">
@@ -216,7 +223,7 @@
                   </div>
                   <div class="mt-2 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i><a href="categories/20_30" style="color: #858796;"> <span style="color: #000;"> </span> 20-30
+                      <i class="fas fa-circle text-primary"></i><a href="categories/18_30" style="color: #858796;"> <span style="color: #000;"> </span> 18-30
                     </span></a>
                     <span class="mr-2">
                       <i class="fas fa-circle text-success"></i><a href="categories/31_40" style="color: #858796;"> <span style="color: #000;"> </span> 31-40
@@ -235,8 +242,82 @@
             </div>
 
 
-        </div>
+            <!------------------------------------- AGE BY FEMALE CHART -------------------------------------------------->
 
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  
+                  <h6 class="m-0 font-weight-bold text-primary">Age : <span style="color: #FF1493;">Female</span></h6>
+
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="pieChartAgeFemale"></canvas>
+                  </div>
+                  <div class="mt-2 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i><a href="categories/female_18_30" style="color: #858796;"> <span style="color: #000;"> </span> 18-30
+                    </span></a>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i><a href="categories/female_31_40" style="color: #858796;"> <span style="color: #000;"> </span> 31-40
+                    </span></a>
+                  </div>  
+                  <div class="text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i><a href="categories/female_41_50" style="color: #858796;"> <span style="color: #000;"> </span> 41-50
+                    </span></a>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-warning"></i><a href="categories/female_51_60" style="color: #858796;"> <span style="color: #000;"> </span> 51-60
+                    </span></a>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!------------------------------------- AGE BY MALE CHART -------------------------------------------------->
+
+            <div class="col-xl-4 col-lg-5">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  
+                  <h6 class="m-0 font-weight-bold text-primary">Age : <span style="color: #1420C2;">Male</span></h6>
+
+                </div>
+                
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="pieChartAgeMale"></canvas>
+                  </div>
+                  <div class="mt-2 text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-primary"></i><a href="categories/male_18_30" style="color: #858796;"> <span style="color: #000;"> </span> 18-30
+                    </span></a>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-success"></i><a href="categories/male_31_40" style="color: #858796;"> <span style="color: #000;"> </span> 31-40
+                    </span></a>
+                  </div>  
+                  <div class="text-center small">
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-info"></i><a href="categories/male_41_50" style="color: #858796;"> <span style="color: #000;"> </span> 41-50
+                    </span></a>
+                    <span class="mr-2">
+                      <i class="fas fa-circle text-warning"></i><a href="categories/male_51_60" style="color: #858796;"> <span style="color: #000;"> </span> 51-60
+                    </span></a>                    
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+      <!------------------------------------- END OF 2ND ROW -------------------------------------------------->
 
         </div>
         <!-- /.container-fluid -->
@@ -296,7 +377,10 @@
   <!-- <script src="js/demo/chart-pie-demo.js"></script> -->
   <!-- <script src="js/demo/donut_chart.php"></script> -->
   <?php // require_once "js/demo/chart-bar-demo.php"; ?>  
+
+  <!-- THIS DONUT CHART HAS THE LEVELS CIVIL AND EMPLOYEE TYPES -->
   <?php require_once 'js/demo/donut_chart.php'; ?>
+  <!-- THIS DONUT CHART HAS THE AGE,FEMALE AGE AND MALE AGE -->
   <?php require_once 'js/demo/donut_chart2.php'; ?>  
 </body>
 

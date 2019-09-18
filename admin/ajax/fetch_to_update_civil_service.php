@@ -25,7 +25,7 @@ $output = "
 
             <div class='form-group'>
               <label for='cs-exam' class='col-form-label'>Civil Service Examination<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='cs_exam' id='edit-cs-exam' value='".$civilserve_row['cs_exam']."'>
+              <input class='form-control upperCase' type='text' name='cs_exam' id='edit-cs-exam' value='".$civilserve_row['cs_exam']."'>
             </div>
             <div class='form-group'>
               <label for='rating' class='col-form-label'>Passed Rating<span class='required-info'> *</span></label>

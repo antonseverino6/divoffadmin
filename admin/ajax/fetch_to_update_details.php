@@ -25,7 +25,7 @@ $details = new Details();
 
             <div class='form-group'>
               <label for='special-order' class='col-form-label'>Special Order Number / Nature of Appt.<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='special_order_no' id='edit-special-order-no' value='".$details_row['special_order_no']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='special_order_no' id='edit-special-order-no' value='".$details_row['special_order_no']."' autocomplete='off'>
             </div>
 
 
@@ -138,7 +138,7 @@ $details = new Details();
 
             <div class='form-group'>
               <label for='edit-nature-ass' class='col-form-label'>Station/Nature of Assignment/School<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='nature_of_assignment' id='edit-nature-ass' value='".$details_row['nature_of_assignment']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='nature_of_assignment' id='edit-nature-ass' value='".$details_row['nature_of_assignment']."' autocomplete='off'>
             </div>";
 $output .= "
 
@@ -149,12 +149,12 @@ $output .= "
 
             <div class='form-group'>
               <label for='edit-position' class='col-form-label'>Position<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='position' id='edit-position' value='".$details_row['position']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='position' id='edit-position' value='".$details_row['position']."' autocomplete='off'>
             </div>
 
             <div class='form-group'>
               <label for='edit-remarks' class='col-form-label'>Remarks<span class='required-info'> *</span></label>
-              <input class='form-control' type='text' name='remarks' id='edit-remarks' value='".$details_row['remarks']."' autocomplete='off'>
+              <input class='form-control upperCase' type='text' name='remarks' id='edit-remarks' value='".$details_row['remarks']."' autocomplete='off'>
             </div>
 
             ";

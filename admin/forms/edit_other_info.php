@@ -66,15 +66,15 @@ $emp_other_info = $fetch_other_info->fetch_array();
   <tbody>
     <tr>
       <td class="asked-info" style="width: 225px;">Name of Spouse</td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="spouse_name" value="<?php echo $emp_other_info['spouse_name']; ?>" placeholder="e.g. MARIA A. CRUZ" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="spouse_name" value="<?php echo $emp_other_info['spouse_name']; ?>" placeholder="e.g. MARIA A. CRUZ" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
     </tr>
     <tr>
       <td class="asked-info">Occupation</td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="spouse_occ" value="<?php echo $emp_other_info['spouse_occ']; ?>" placeholder="e.g. CASHIER" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="spouse_occ" value="<?php echo $emp_other_info['spouse_occ']; ?>" placeholder="e.g. CASHIER" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
     </tr>
     <tr>
       <td class="asked-info">Address</td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="spouse_add" value="<?php echo $emp_other_info['spouse_add']; ?>" placeholder="ST., SUBD., BARANGAY, TOWN, PROVINCE / ZIP CODE" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="spouse_add" value="<?php echo $emp_other_info['spouse_add']; ?>" placeholder="ST., SUBD., BARANGAY, TOWN, PROVINCE / ZIP CODE" <?php if($emp_info['civil_status'] == 'SINGLE') { echo "disabled"; }  ?>></td>
     </tr>                           
   </tbody>
 </table>
@@ -88,7 +88,7 @@ $emp_other_info = $fetch_other_info->fetch_array();
   <tbody>
     <tr>
       <td class="asked-info" style="width: 200px;">Highest Grade completed or degree received</td>
-      <td class="person-info"><input class="form-control" type="text" name="high_deg_received" value="<?php echo $emp_other_info['high_deg_received']; ?>" placeholder="e.g. MASTER OF ARTS IN EDUCATIONAL MANAGEMENT"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="high_deg_received" value="<?php echo $emp_other_info['high_deg_received']; ?>" placeholder="e.g. MASTER OF ARTS IN EDUCATIONAL MANAGEMENT"></td>
     </tr>  
     <tr>  
       <td class="asked-info" style="width: 200px;">Year received</td>
@@ -107,15 +107,15 @@ $emp_other_info = $fetch_other_info->fetch_array();
     </tr>
     <tr>
       <td class="asked-info">Name of Institution</td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="name_of_institution" value="<?php echo $emp_other_info['name_of_institution']; ?>" placeholder="e.g. UNIVERSITY OF RIZAL SYSTEM - RODRIGUEZ"></td>
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="name_of_institution" value="<?php echo $emp_other_info['name_of_institution']; ?>" placeholder="e.g. UNIVERSITY OF RIZAL SYSTEM - RODRIGUEZ"></td>
     </tr>
     <tr>
       <td class="asked-info" style="width: 200px;">Special Qualification</td>
-      <td class="person-info"><input class="form-control" type="text" name="spec_qualification" value="<?php echo $emp_other_info['spec_qualification']; ?>" placeholder="e.g. ADVANCE COMPUTER USER"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="spec_qualification" value="<?php echo $emp_other_info['spec_qualification']; ?>" placeholder="e.g. ADVANCE COMPUTER USER"></td>
     </tr>
     <tr>  
       <td class="asked-info" style="width: 200px;">Previous Experience</td>
-      <td class="person-info"><input class="form-control" type="text" name="prev_experience" value="<?php echo $emp_other_info['prev_experience']; ?>" placeholder="e.g. CALL CENTER AGENT"></td>      
+      <td class="person-info"><input class="form-control upperCase" type="text" name="prev_experience" value="<?php echo $emp_other_info['prev_experience']; ?>" placeholder="e.g. CALL CENTER AGENT"></td>      
     </tr>
   </tbody>
   </table>

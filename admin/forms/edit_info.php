@@ -181,14 +181,14 @@ if(isset($_POST['update_info'])) {
     </tr>
     <tr>
       <td class="asked-info">First Name<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="first_name" value="<?php echo $emp_info['first_name']; ?>" required="">
+      <td class="person-info"><input class="form-control upperCase" type="text" name="first_name" value="<?php echo $emp_info['first_name']; ?>" required="">
       </td>
       <td class="asked-info">Last Name<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="last_name" value="<?php echo $emp_info['last_name']; ?>" required=""></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="last_name" value="<?php echo $emp_info['last_name']; ?>" required=""></td>
     </tr>
     <tr>
       <td class="asked-info">Middle Name</td>
-      <td class="person-info"><input class="form-control" type="text" name="middle_name" value="<?php echo $emp_info['middle_name']; ?>"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="middle_name" value="<?php echo $emp_info['middle_name']; ?>"></td>
       <td class="asked-info">Tin Number<span class="required-info"> *</span></td>
       <td class="person-info"><input class="form-control" type="text" name="new_tin_num" onkeypress="return isNumberKey(event);" value="<?php echo $emp_info['tin_num']; ?>" placeholder="xxx-xxx-xxx" required=""></td>  
     </tr>
@@ -288,16 +288,16 @@ if(isset($_POST['update_info'])) {
         
       </td>
             <td class="asked-info">Place of Birth<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="place_birth" value="<?php echo $emp_info['place_birth']; ?>" required=""></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="place_birth" value="<?php echo $emp_info['place_birth']; ?>" required=""></td>
 
     </tr>
     <tr>
       <td class="asked-info">Permanent Address<span class="required-info"> *</span></td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="per_address" value="<?php echo $emp_info['per_address']; ?>" required=""></td> 
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="per_address" value="<?php echo $emp_info['per_address']; ?>" required=""></td> 
     </tr> 
     <tr>
       <td class="asked-info">School Name<span class="required-info"> *</span></td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="school_name" value="<?php echo $emp_info['school_name']; ?>" required=""></td> 
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="school_name" value="<?php echo $emp_info['school_name']; ?>" required=""></td> 
     </tr>     
     <tr>
       <td class="asked-info">School ID<span class="required-info"> *</span></td>
@@ -314,9 +314,9 @@ if(isset($_POST['update_info'])) {
     </tr>
     <tr>
       <td class="asked-info">Employment Status<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="employ_status" value="<?php echo $emp_info['employ_status']; ?>" required=""></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="employ_status" value="<?php echo $emp_info['employ_status']; ?>" required=""></td>
       <td class="asked-info">Role Type<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="role_type" value="<?php echo $emp_info['role_type']; ?>" required=""></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="role_type" value="<?php echo $emp_info['role_type']; ?>" required=""></td>
     </tr>                          
     <tr>
       <td class="asked-info">Date of Joining<span class="required-info"> *</span></td>

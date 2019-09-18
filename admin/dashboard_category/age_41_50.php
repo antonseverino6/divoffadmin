@@ -1,6 +1,6 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->age_count(41,50); ?> Total for</span> Age : 41 to 50 <span class="m-0 font-weight-bold text-primary float-right">Female : <?php echo $info->count_gender_for_age('female',41,50) ?>, Male : <?php echo $info->count_gender_for_age('male',41,50) ?></span></h6>
+              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->age_count(41,50); ?> Total for</span> Age : 41 to 50 <span class="m-0 font-weight-bold text-primary float-right"><span style="color: #FF1493;">Female</span> : <?php echo $info->count_gender_for_age('female',41,50) ?>, <span style="color: #1420C2;">Male</span> : <?php echo $info->count_gender_for_age('male',41,50) ?></span></h6>
 
             </div>
             <div class="card-body">
@@ -57,7 +57,9 @@
                       <td><?php echo $info_row['first_name']; ?></td> 
                       <td><?php echo $info_row['last_name']; ?></td>
                       <td><?php echo $info_row['school_name']; ?></td>
-                      <td><?php echo $info_row['gender']; ?></td>
+                      <td style='color:<?php echo $info_row['gender'] == 'FEMALE' ?  "#FF1493;" : "#1420C2;" ?> '>
+                        <?php echo $info_row['gender']; ?>
+                      </td>
                       <td><?php echo $info_row['age']; ?></td>
                       <td><?php echo $info_row['contact_num']; ?></td>
 

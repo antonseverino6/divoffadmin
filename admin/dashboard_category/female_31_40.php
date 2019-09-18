@@ -1,6 +1,6 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->age_count(51,60); ?> Total for</span> Age : 51 to 60 <span class="m-0 font-weight-bold text-primary float-right"><span style="color: #FF1493;">Female</span> : <?php echo $info->count_gender_for_age('female',51,60) ?>, <span style="color: #1420C2;">Male</span> : <?php echo $info->count_gender_for_age('male',51,60) ?></span></h6>
+              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->count_gender_for_age('FEMALE',31,40); ?> Total for</span> <span style="color: #FF1493;">Female</span> age : 31 to 40 </h6>
 
             </div>
             <div class="card-body">
@@ -12,7 +12,6 @@
                       <th>First Name</th>
                       <th>Last Name</th>
                       <th>School Name</th>
-                      <th>Gender</th>
                       <th>Age</th>
                       <th>Contact Number</th>
                       <th>Action</th>
@@ -24,7 +23,6 @@
                       <th>First Name</th>
                       <th>Last Name</th>
                       <th>School Name</th>
-                      <th>Gender</th>
                       <th>Age</th>
                       <th>Contact Number</th>
                       <th>Action</th>
@@ -33,7 +31,7 @@
                   <tbody>
          <?php 
             
-          $result = $db->query("SELECT id,first_name,last_name,age,tin_num,contact_num,gender,school_name FROM info WHERE age BETWEEN 51 and 60");
+          $result = $db->query("SELECT id,first_name,last_name,school_name,tin_num,contact_num,age FROM info WHERE gender='FEMALE' AND age BETWEEN 31 and 40");
 
           if($result->num_rows < 1) :
           ?>
@@ -57,9 +55,6 @@
                       <td><?php echo $info_row['first_name']; ?></td> 
                       <td><?php echo $info_row['last_name']; ?></td>
                       <td><?php echo $info_row['school_name']; ?></td>
-                      <td style='color:<?php echo $info_row['gender'] == 'FEMALE' ?  "#FF1493;" : "#1420C2;" ?> '>
-                        <?php echo $info_row['gender']; ?>
-                      </td>
                       <td><?php echo $info_row['age']; ?></td>
                       <td><?php echo $info_row['contact_num']; ?></td>
 

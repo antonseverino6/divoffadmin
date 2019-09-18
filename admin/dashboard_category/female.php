@@ -1,6 +1,6 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->female_count(); ?></span> Female</h6>
+              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->female_count(); ?></span> <span style="color: #FF1493;">Female</span></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">

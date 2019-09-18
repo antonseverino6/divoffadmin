@@ -205,14 +205,14 @@ $info = new Info();
     </tr>
     <tr>
       <td class="asked-info">First Name<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="first_name" required="" id="add_first_name" placeholder="e.g. JUAN" autocomplete="on">
+      <td class="person-info"><input class="form-control upperCase" type="text" name="first_name" required="" id="add_first_name" placeholder="e.g. JUAN" autocomplete="on">
       </td>
       <td class="asked-info">Last Name<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="last_name" required="" id="add_last_name" placeholder="e.g. DELA CRUZ" autocomplete="on"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="last_name" required="" id="add_last_name" placeholder="e.g. DELA CRUZ" autocomplete="on"></td>
     </tr>
     <tr>
       <td class="asked-info">Middle Name</td>
-      <td class="person-info"><input class="form-control" type="text" name="middle_name" id="add_middle_name" placeholder="e.g. SANTOS" autocomplete="on"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="middle_name" id="add_middle_name" placeholder="e.g. SANTOS" autocomplete="on"></td>
       <td class="asked-info">Tin Number<span class="required-info"> *</span></td>
       <td class="person-info"><input class="form-control numDash" type="text" name="tin_num"  placeholder="e.g. xxx-xxx-xxx" required="" id="add_tin_num" autocomplete="on"></td>  
     </tr>
@@ -280,16 +280,16 @@ $info = new Info();
         
       </td>
             <td class="asked-info">Place of Birth<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="place_birth" required="" id="add_place_birth" placeholder="TOWN, PROVINCE" autocomplete="on"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="place_birth" required="" id="add_place_birth" placeholder="TOWN, PROVINCE" autocomplete="on"></td>
 
     </tr>
     <tr>
       <td class="asked-info">Permanent Address<span class="required-info"> *</span></td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="per_address" required="" id="add_per_add" placeholder="ST., SUBD., BARANGAY, TOWN, PROVINCE / ZIP CODE" autocomplete="on"></td> 
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="per_address" required="" id="add_per_add" placeholder="ST., SUBD., BARANGAY, TOWN, PROVINCE / ZIP CODE" autocomplete="on"></td> 
     </tr>
     <tr>
       <td class="asked-info">School Name<span class="required-info"> *</span></td>
-      <td class="person-info" colspan="3"><input class="form-control" type="text" name="school_name" required="" id="add-school-name" placeholder="e.g. AMPID NATIONAL HIGH SCHOOL"></td> 
+      <td class="person-info" colspan="3"><input class="form-control upperCase" type="text" name="school_name" required="" id="add-school-name" placeholder="e.g. AMPID NATIONAL HIGH SCHOOL"></td> 
     </tr>      
     <tr>
       <td class="asked-info">School ID<span class="required-info"> *</span></td>
@@ -306,9 +306,9 @@ $info = new Info();
     </tr>
     <tr>
       <td class="asked-info">Employment Status<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="employ_status" required="" id="add_employ_status" placeholder="e.g. PERMANENT"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="employ_status" required="" id="add_employ_status" placeholder="e.g. PERMANENT"></td>
       <td class="asked-info">Role Type<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="role_type" required="" id="add_role_type" placeholder="e.g. EMPLOYEE MANAGER"></td>
+      <td class="person-info"><input class="form-control upperCase" type="text" name="role_type" required="" id="add_role_type" placeholder="e.g. EMPLOYEE MANAGER"></td>
     </tr>                          
     <tr>
       <td class="asked-info">Date of Joining<span class="required-info"> *</span></td>
@@ -468,6 +468,11 @@ $(function () {
     }
     $(this).val(val); 
   });
+
+$(':input').on('input', function() {
+    $(this).toggleClass('notEmpty', this.value.length > 0);
+}).trigger('input');
+
 
 </script>
 

@@ -26,7 +26,7 @@
 
             <div class="form-group">
               <label for="insert-special-order" class="col-form-label">Special Order Number / Nature of Appt.<span class="required-info"> *</span></label>
-              <input class="form-control" type="text" name="special_order_no" id="insert-special-order" required autocomplete="off">
+              <input class="form-control upperCase" type="text" name="special_order_no" id="insert-special-order" required autocomplete="off">
             </div>
 
 
@@ -104,7 +104,7 @@
 
             <div class="form-group">
               <label for="insert-nature-ass" class="col-form-label">Station/Nature of Assignment/School<span class="required-info"> *</span></label>
-              <input class="form-control" type="text" name="nature_of_assignment" id="insert-nature-ass">
+              <input class="form-control upperCase" type="text" name="nature_of_assignment" id="insert-nature-ass">
             </div>
 
 <!--           <label for="nat-effective-date" class="col-form-label">Effective Date</label> 
@@ -141,12 +141,12 @@
 
             <label for="insert-position" class="col-form-label">Position<span class="required-info"> *</span></label> 
             <div class="input-group" id="position">
-               <input class="form-control" type="text" name="position" id="insert-position" autocomplete="off">      
+               <input class="form-control upperCase" type="text" name="position" id="insert-position" autocomplete="off">      
             </div> 
 
             <label for="insert-remarks" class="col-form-label">Remarks<span class="required-info"> *</span></label> 
             <div class="input-group" id="remarks">
-               <input class="form-control" type="text" name="remarks" id="insert-remarks" autocomplete="off">      
+               <input class="form-control upperCase" type="text" name="remarks" id="insert-remarks" autocomplete="off">      
             </div> 
 
 <!--             <label for="pick_pri_inter" class="col-form-label">Primary or Intermediate</label>

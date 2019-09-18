@@ -1,6 +1,6 @@
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->age_count(51,60); ?> Total for</span> Age : 51 to 60 <span class="m-0 font-weight-bold text-primary float-right"><span style="color: #FF1493;">Female</span> : <?php echo $info->count_gender_for_age('female',51,60) ?>, <span style="color: #1420C2;">Male</span> : <?php echo $info->count_gender_for_age('male',51,60) ?></span></h6>
+              <h6 class="m-0 font-weight-bold text-primary"><span style="color: #000;"><?php echo $info->age_count(18,30); ?> Total for</span> Age : 18 to 30 <span class="m-0 font-weight-bold text-primary float-right"><span style="color: #FF1493;">Female</span> : <?php echo $info->count_gender_for_age('female',18,30) ?>, <span style="color: #1420C2;">Male</span> : <?php echo $info->count_gender_for_age('male',18,30) ?></span></h6>
 
             </div>
             <div class="card-body">
@@ -33,7 +33,7 @@
                   <tbody>
          <?php 
             
-          $result = $db->query("SELECT id,first_name,last_name,age,tin_num,contact_num,gender,school_name FROM info WHERE age BETWEEN 51 and 60");
+          $result = $db->query("SELECT id,first_name,last_name,school_name,tin_num,contact_num,gender,age FROM info WHERE age BETWEEN 18 and 30");
 
           if($result->num_rows < 1) :
           ?>

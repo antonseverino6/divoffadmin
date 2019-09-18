@@ -84,8 +84,8 @@
                   require_once 'dashboard_category/no_employee_id.php';
                 break;
 
-              case '20_30':
-                  require_once 'dashboard_category/age_20_30.php';
+              case '18_30':
+                  require_once 'dashboard_category/age_18_30.php';
               break;
 
               case '31_40':
@@ -98,7 +98,40 @@
 
               case '51_60':
                   require_once 'dashboard_category/age_51_60.php';
-              break;                                             
+              break;
+
+              case 'female_18_30':
+                  require_once 'dashboard_category/female_18_30.php';
+              break;
+
+              case 'female_31_40':
+                  require_once 'dashboard_category/female_31_40.php';
+              break;  
+
+              case 'female_41_50':
+                  require_once 'dashboard_category/female_41_50.php';
+              break;
+
+              case 'female_51_60':
+                  require_once 'dashboard_category/female_51_60.php';
+              break;
+
+              case 'male_18_30':
+                  require_once 'dashboard_category/male_18_30.php';
+              break;
+
+              case 'male_31_40':
+                  require_once 'dashboard_category/male_31_40.php';
+              break;  
+
+              case 'male_41_50':
+                  require_once 'dashboard_category/male_41_50.php';
+              break;
+
+              case 'male_51_60':
+                  require_once 'dashboard_category/male_51_60.php';
+              break;  
+
 
               default :
                   require_once 'dashboard_category/404.php';
