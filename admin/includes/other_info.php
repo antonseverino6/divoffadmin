@@ -120,61 +120,7 @@ class Other_info {
         return ["",'KINDER','ELEMENTARY','JUNIOR HIGH SCHOOL','SENIOR HIGH SCHOOL',"OSDS","CID","SGOD"];
     }
 
-    
-    public function position_choices() {
-        return [   
-
-
-                '','TEACHER I','TEACHER II','TEACHER III','SPECIAL SCIENCE TEACHER I','SPECIAL EDUCATION TEACHER I',
-                'SPECIAL EDUCATION TEACHER II','SPECIAL EDUCATION TEACHER III','MASTER TEACHER I','MASTER TEACHER II',
-                'MASTER TEACHER III','MASTER TEACHER IV',
-                
-                'SENIOR BOOKKEEPER','DISBURSING OFFICER II','ADMINISTRATIVE ASSISTANT I','ADMINISTRATIVE ASSISTANT II',
-                'ADMINISTRATIVE ASSISTANT III','ADMINISTRATIVE AIDE I','ADMINISTRATIVE AIDE II','ADMINISTRATIVE AIDE III',
-                'ADMINISTRATIVE AIDE IV','ADMINISTRATIVE AIDE V','ADMINISTRATIVE AIDE VI','SCHOOL PRINCIPAL I','SCHOOL PRINCIPAL II',
-                'SCHOOL PRINCIPAL III','SCHOOL PRINCIPAL IV','ASSISTANT SCHOOL PRINCIPAL II','HEAD TEACHER I','HEAD TEACHER II',
-                'HEAD TEACHER III','HEAD TEACHER IV','HEAD TEACHER V','HEAD TEACHER VI','GUIDANCE COUNSELOR I',
-                'GUIDANCE COUNSELOR II','REGISTRAR I','SCHOOL LIBRARIAN I','SCHOOL LIBRARIAN II','SECURITY GUARD I','DRIVER',
-
-
-                    'SCHOOLS DIVISION SUPERINTENDENT',
-                    'ASSISTANT SCHOOLS DIVISION SUPERINTENDENT',
-                    'ATTORNEY III',
-                    'ACCOUNTANT III',
-                    'ACCOUNTANT I',
-                    'CHIEF EDUCATION SUPERVISOR',
-                    'EDUCATION PROGRAM SUPERVISOR',
-                    'PUBLIC SCHOOLS DISTRICT SUPERVISOR',
-                    'SENIOR EDUCATION PROGRAM SPECIALIST',
-                    'INFORMATION TECHNOLOGY OFFICER I',
-                    'EDUCATION PROGRAM SPECIALIST II',
-                    'ADMINISTRATIVE OFFICER V',
-                    'ADMINISTRATIVE OFFICER IV',
-                    'ADMINISTRATIVE OFFICER II',
-                    'ADMINISTRATIVE OFFICER I',
-                    'LEGAL ASSISTANT I',
-                    'SENIOR BOOKKEEPER',
-                    'DISBURSING OFFICER II',
-                    'ADMINISTRATIVE ASSISTANT III',
-                    'ADMINISTRATIVE ASSISTANT II',
-                    'ADMINISTRATIVE ASSISTANT I',
-                    'ADMINISTRATIVE AIDE VI',
-                    'ADMINISTRATIVE AIDE V',
-                    'ADMINISTRATIVE AIDE IV',
-                    'ADMINISTRATIVE AIDE III',
-                    'ADMINISTRATIVE AIDE II',
-                    'ADMINISTRATIVE AIDE I',
-                    'MEDICAL OFFICER III',
-                    'ENGINEER III',
-                    'PLANNING OFFICER III',
-                    'DENTIST II',
-                    'NURSE II',
-                    'DENTAL AIDE',
-                    'PROJECT DEVELOPMENT OFFICER II',
-                    'PROJECT DEVELOPMENT OFFICER I',
-                    'SECURITY GUARD I',
-                    'DRIVER'  ];
-    }        
+     
 
 
     // ======================================= FOR SUBJECT INPUTS ============================================ //

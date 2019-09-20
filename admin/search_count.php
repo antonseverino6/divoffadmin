@@ -50,7 +50,7 @@
 
 					<div class="col">
             <label class="control-label">Employee</label>
-						<select name="employee">
+						<select id="employee" name="employee">
 							<option value="no_value"></option>
 							<option value="NON-TEACHING">NON-TEACHING</option>
 							<option value="TEACHING">TEACHING</option>
@@ -61,11 +61,18 @@
 					<div class="col">
             <label class="control-label">Employee Type</label>
             <select name="employee_type">
+              <option value=""></option>
               <?php 
-                $employee_type_count = count($other_info->employee_type_choices());
-                $employee_type_arr = $other_info->employee_type_choices();
-                    for($i = 0; $i < $employee_type_count; $i++) : ?>
-                      <option value="<?php echo $employee_type_arr[$i]; ?>"><?php echo $employee_type_arr[$i]; ?></option>
+                $teacher_count = count($other_info->teacher_choices());
+                $teacher_arr = $other_info->teacher_choices();
+                    for($i = 0; $i < $teacher_count; $i++) : ?>
+                      <option class="teacher_type" value="<?php echo $teacher_arr[$i]; ?>"><?php echo $teacher_arr[$i]; ?></option>
+              <?php endfor; ?>  
+              <?php 
+                $sdo_based_count = count($other_info->sdo_based_choices());
+                $sdo_based_arr = $other_info->sdo_based_choices();
+                    for($i = 0; $i < $sdo_based_count; $i++) : ?>
+                      <option class="sdo_based_type" value="<?php echo $sdo_based_arr[$i]; ?>"><?php echo $sdo_based_arr[$i]; ?></option>
               <?php endfor; ?>  
             </select>
 					</div>	
@@ -73,11 +80,24 @@
 					<div class="col">
             <label class="control-label">Position</label>
             <select name="position">
+              <option value=""></option>
               <?php 
-                $position_count = count($other_info->position_choices());
-                $position_arr = $other_info->position_choices();
-                    for($i = 0; $i < $position_count; $i++) : ?>
-                      <option value="<?php echo $position_arr[$i]; ?>"><?php echo $position_arr[$i]; ?></option>
+                $teaching_count = count($other_info->teaching_choices());
+                $teaching_arr = $other_info->teaching_choices();
+                    for($i = 0; $i < $teaching_count; $i++) : ?>
+                      <option class="teaching_position" value="<?php echo $teaching_arr[$i]; ?>"><?php echo $teaching_arr[$i]; ?></option>
+              <?php endfor; ?>  
+              <?php 
+                $non_teaching_count = count($other_info->non_teaching_position_choices());
+                $non_teaching_arr = $other_info->non_teaching_position_choices();
+                    for($i = 0; $i < $non_teaching_count; $i++) : ?>
+                      <option class="non_teaching_position" value="<?php echo $non_teaching_arr[$i]; ?>"><?php echo $non_teaching_arr[$i]; ?></option>
+              <?php endfor; ?>  
+              <?php 
+                $sdo_based_count = count($other_info->sdo_based_position_choices());
+                $sdo_based_arr = $other_info->sdo_based_position_choices();
+                    for($i = 0; $i < $sdo_based_count; $i++) : ?>
+                      <option class="sdo_based_position" value="<?php echo $sdo_based_arr[$i]; ?>"><?php echo $sdo_based_arr[$i]; ?></option>
               <?php endfor; ?> 
             </select>
 					</div>
@@ -182,9 +202,78 @@
 
   <script>
   	$(document).ready(function() {
+      var employee = $("#employee");
+      var sdo_based_type = $(".sdo_based_type");
+      var teacher_and_non_teacher_type = $(".teacher_type");
+      var sdo_based_position = $(".sdo_based_position");
+      var non_teaching_position = $(".non_teaching_position");
+      var teaching_position = $(".teaching_position");
+
+      // if (employee.val() === '') {
+        $("#employee").on("change", function() {
+
+          switch(employee.val()) {
+            case 'NON-TEACHING':
+              sdo_based_type.attr("disabled","true");
+              teaching_position.attr("disabled","true");
+              sdo_based_position.attr("disabled","true");
+              if (teacher_and_non_teacher_type.attr("disabled")) {
+                teacher_and_non_teacher_type.removeAttr("disabled");
+              }
+              if (non_teaching_position.attr("disabled")) {
+                non_teaching_position.removeAttr("disabled");
+              }   
+            break;
+            case 'TEACHING':
+              sdo_based_type.attr("disabled","true");
+              non_teaching_position.attr("disabled","true");
+              sdo_based_position.attr("disabled","true");
+              if (teacher_and_non_teacher_type.attr("disabled")) {
+                teacher_and_non_teacher_type.removeAttr("disabled");
+              }
+              if (teaching_position.attr("disabled")) {
+                teaching_position.removeAttr("disabled");
+              }  
+            break;
+            case 'SDO BASED PERSONNEL':
+              teacher_and_non_teacher_type.attr("disabled","true");
+              non_teaching_position.attr("disabled","true");
+              teaching_position.attr("disabled","true");
+              if (sdo_based_type.attr("disabled")) {
+                sdo_based_type.removeAttr("disabled");
+              }
+              if (sdo_based_position.attr("disabled")) {
+                sdo_based_position.removeAttr("disabled");
+              }
+
+            break;
+            default :
+              if (sdo_based_type.attr("disabled")) {
+                sdo_based_type.removeAttr("disabled");
+              } else if (teacher_and_non_teacher_type.attr("disabled")) {
+                teacher_and_non_teacher_type.removeAttr("disabled");
+              } else if (sdo_based_type.attr("disabled") && teacher_and_non_teacher_type.attr("disabled")) {
+                sdo_based_type.removeAttr("disabled");
+                teacher_and_non_teacher_type.removeAttr("disabled");
+              }
+              if (non_teaching_position.attr("disabled")) {
+                non_teaching_position.removeAttr("disabled");
+              }
+              if (teaching_position.attr("disabled")) {
+                teaching_position.removeAttr("disabled");
+              }  
+              if (sdo_based_position.attr("disabled")) {
+                sdo_based_position.removeAttr("disabled");
+              }   
+            break;
+          }
+
+        });        
+      // }
 
 
-      // AJAX CALL 
+
+      // AJAX CALL FOR SEARCH
 
   		$("#search_count_btn").click(function() {
   			$.ajax({
