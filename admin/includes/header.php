@@ -52,7 +52,16 @@
           echo "Categories";
         break;
       case '/divoffadmin/admin/mydetails.php':
-          echo "My Details";
+          if (isset($_GET['id'])) {
+            $result = $db->query("SELECT first_name,last_name FROM info WHERE tin_num='".$db->fix_string($_GET['id'])."'");
+            $row = $result->fetch_array();
+
+            echo $row['first_name'] . " " . $row['last_name'];
+          } else {
+
+            echo "My Details";
+
+          }
         break;
       case '/divoffadmin/admin/service_card.php':
           echo "Service Card";
@@ -302,6 +311,10 @@
       input.notEmpty {
         background-color : rgb(232, 240, 254); 
       }          
+
+      #components option:disabled {
+        background-color: #D3D3D3;
+      }
 
   </style>
 

@@ -409,7 +409,7 @@ if(isset($_POST['update_info'])) {
       <td class="asked-info">Region Org Code<span class="required-info"> *</span></td>
       <td class="person-info"><input class="form-control" type="text" name="region_org_code" value="<?php echo $emp_info['region_org_code']; ?>" required=""></td>
       <td class="asked-info">Contact Number<span class="required-info"> *</span></td>
-      <td class="person-info"><input class="form-control" type="text" name="contact_num" value="<?php echo $emp_info['contact_num']; ?>" required=""></td>    
+      <td class="person-info"><input class="form-control" type="text" maxlength="13" name="contact_num" value="<?php echo $emp_info['contact_num']; ?>" required=""></td>    
     </tr>
 
     <tr>

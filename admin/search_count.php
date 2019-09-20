@@ -182,6 +182,10 @@
 
   <script>
   	$(document).ready(function() {
+
+
+      // AJAX CALL 
+
   		$("#search_count_btn").click(function() {
   			$.ajax({
   				url: "ajax/search_count.php",

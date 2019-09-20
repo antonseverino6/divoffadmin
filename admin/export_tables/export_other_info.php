@@ -19,7 +19,7 @@
 
 			$other_info_head = array('tin_num','spouse_name','spouse_occ','spouse_add','high_deg_received','year_received','name_of_institution',
 									 'spec_qualification','prev_experience','teach_comp_exam_score','teach_comp_exam_date','gsis_no','level_civil_service','employee','employee_type','position','philhealth_no',
-									 'prc_license','lbp_no','pag_ibig_no');
+									 'prc_license','lbp_no','pag_ibig_no','subject','tle_strand','tle_component','grade_level');
 
 			fputcsv($output, $other_info_head);
 
@@ -33,7 +33,8 @@
 				$table_row = array("\t".$row['tin_num'],$row['spouse_name'],$row['spouse_occ'],$row['spouse_add'],$row['high_deg_received'],
 								   $row['year_received'],$row['name_of_institution'],$row['spec_qualification'],$row['prev_experience'],
 								   $row['teach_comp_exam_score'],$row['teach_comp_exam_date'],$row['gsis_no'],$row['level_civil_service'],$row['employee'],$row['employee_type'],$row['position'],$row['philhealth_no'],$row['prc_license'],
-								   $row['lbp_no'],$row['pag_ibig_no']);
+								   $row['lbp_no'],$row['pag_ibig_no'],$row['subject'],$row['tle_strand'],
+								   	$row['tle_component'],$row['grade_level']);
 				
 				fputcsv($output, $table_row);
 			}

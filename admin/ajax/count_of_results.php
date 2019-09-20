@@ -76,76 +76,89 @@ require_once '../includes/init.php';
 
 
 
-		if($result !== '') {
-			if($result->num_rows == 1) {
-				if($employee_type !== '' && $position !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($employee_type !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($position !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\", Position : \"$position\"</small></h3>";	
-				}elseif($position !== '' && $employee_type !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($position !== '' && $employee_type !== '' && $employee !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($school_name !== '' && $employee !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\"</small></h3>";
-				}elseif($school_name !== '' && $employee_type !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($school_name !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Position : \"$position\"</small></h3>";
-				}elseif($employee !== '' && $employee_type !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($employee !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Position : \"$position\"</small></h3>";
-				}elseif($employee_type !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($school_name !== ''){
-					echo "<h3 class='page-header'>$result->num_rows" . " result found <small>for School Name : \"$school_name\"</small></h3>";	
-				}elseif($employee !== ''){
-					echo "<h3 class='page-header'>$result->num_rows" . " result found <small>for Employee : \"$employee\"</small></h3>";
-				}elseif($employee_type !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($position !== '') {
-					echo "<h3>$result->num_rows" . " result found <small>for Position : \"$position\"</small></h3>";
-				}
-			}elseif($result->num_rows > 1){
-				if($employee_type !== '' && $position !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($employee_type !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($position !== '' && $employee !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\", Position : \"$position\"</small></h3>";	
-				}elseif($position !== '' && $employee_type !== '' && $school_name !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($position !== '' && $employee_type !== '' && $employee !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($school_name !== '' && $employee !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\"</small></h3>";
-				}elseif($school_name !== '' && $employee_type !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($school_name !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Position : \"$position\"</small></h3>";
-				}elseif($employee !== '' && $employee_type !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($employee !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Position : \"$position\"</small></h3>";
-				}elseif($employee_type !== '' && $position !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-				}elseif($school_name !== ''){
-					echo "<h3 class='page-header'>$result->num_rows" . " results found <small>for School Name : \"$school_name\"</small></h3>";	
-				}elseif($employee !== ''){
-					echo "<h3 class='page-header'>$result->num_rows" . " results found <small>for Employee : \"$employee\"</small></h3>";
-				}elseif($employee_type !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Employee Type : \"$employee_type\"</small></h3>";
-				}elseif($position !== '') {
-					echo "<h3>$result->num_rows" . " results found <small>for Position : \"$position\"</small></h3>";
-				}
-			}else {
-				echo "<h3>No result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-			}
-		}else {
-			echo "<h3>No result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
-		}
+		// if($result !== '') {
+		// 	if($result->num_rows == 1) {
+		// 		if($employee_type !== '' && $position !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee_type !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($position !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\", Position : \"$position\"</small></h3>";	
+		// 		}elseif($position !== '' && $employee_type !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($position !== '' && $employee_type !== '' && $employee !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($school_name !== '' && $employee !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee : \"$employee\"</small></h3>";
+		// 		}elseif($school_name !== '' && $employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($school_name !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for School Name : \"$school_name\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee !== '' && $employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($employee !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Employee : \"$employee\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee_type !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($school_name !== ''){
+		// 			echo "<h3 class='page-header'>$result->num_rows" . " result found <small>for School Name : \"$school_name\"</small></h3>";	
+		// 		}elseif($employee !== ''){
+		// 			echo "<h3 class='page-header'>$result->num_rows" . " result found <small>for Employee : \"$employee\"</small></h3>";
+		// 		}elseif($employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($position !== '') {
+		// 			echo "<h3>$result->num_rows" . " result found <small>for Position : \"$position\"</small></h3>";
+		// 		}
+		// 	}elseif($result->num_rows > 1){
+		// 		if($employee_type !== '' && $position !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee_type !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($position !== '' && $employee !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\", Position : \"$position\"</small></h3>";	
+		// 		}elseif($position !== '' && $employee_type !== '' && $school_name !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($position !== '' && $employee_type !== '' && $employee !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($school_name !== '' && $employee !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee : \"$employee\"</small></h3>";
+		// 		}elseif($school_name !== '' && $employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($school_name !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for School Name : \"$school_name\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee !== '' && $employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($employee !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Employee : \"$employee\", Position : \"$position\"</small></h3>";
+		// 		}elseif($employee_type !== '' && $position !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 		}elseif($school_name !== ''){
+		// 			echo "<h3 class='page-header'>$result->num_rows" . " results found <small>for School Name : \"$school_name\"</small></h3>";	
+		// 		}elseif($employee !== ''){
+		// 			echo "<h3 class='page-header'>$result->num_rows" . " results found <small>for Employee : \"$employee\"</small></h3>";
+		// 		}elseif($employee_type !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Employee Type : \"$employee_type\"</small></h3>";
+		// 		}elseif($position !== '') {
+		// 			echo "<h3>$result->num_rows" . " results found <small>for Position : \"$position\"</small></h3>";
+		// 		}
+		// 	}else {
+		// 		echo "<h3>No result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// 	}
+		// }else {
+		// 	echo "<h3>No result found <small>for School Name : \"$school_name\" Employee : \"$employee\", Employee Type : \"$employee_type\", Position : \"$position\"</small></h3>";
+		// }
 	// }
 			                       
+
+
+		if ($result !== '') {
+			if ($result->num_rows == 1) {
+				echo "<span style='color: #57b846;'>$result->num_rows </span>result</div>";
+			} elseif($result->num_rows > 1) {
+				echo "<span style='color: #57b846;'>$result->num_rows </span>results</div>";
+			} else {
+				echo "<span style='color: #57b846;'>No </span>result</div>";	
+			}
+		} else {
+			echo "<span style='color: #57b846;'>No </span>result</div>";
+		}

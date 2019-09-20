@@ -26,7 +26,31 @@ $emp_other_info = $fetch_other_info->fetch_array();
     $prc_license = trim($db->fix_string($_POST['prc_license']));
     $lbp_no = trim($db->fix_string($_POST['lbp_no']));
     $pag_ibig_no = trim($db->fix_string($_POST['pag_ibig_no']));
-      
+    $subject = trim($db->fix_string($_POST['subject']));
+    $tle_strand = trim($db->fix_string($_POST['tle_strand']));
+    $tle_component = trim($db->fix_string($_POST['tle_component']));
+    $grade_level = trim($db->fix_string($_POST['grade_level']));
+
+
+
+    if ($employee === "SDO BASED PERSONNEL") {
+        $subject = "";
+        $tle_strand = "";
+        $tle_component = "";
+        $grade_level = "";
+    }
+
+    if ($employee === 'NON-TEACHING' && ($position !== 'HEAD TEACHER I' && $position !== 'HEAD TEACHER II' && $position !== 'HEAD TEACHER III' && $position !== 'HEAD TEACHER IV' && $position !== 'HEAD TEACHER V' && $position !== 'HEAD TEACHER VI') ) {
+        $subject = "";
+        $tle_strand = "";
+        $tle_component = ""; 
+        $grade_level = "";
+    }
+
+    if ($subject !== "Technology and Livelihood Education (TLE)") {
+      $tle_strand = "";
+      $tle_component = "";
+    } 
           
 
     // $teach_comp_month =  trim($db->fix_string($_POST['teach_comp_month']));
@@ -47,7 +71,8 @@ $emp_other_info = $fetch_other_info->fetch_array();
         $sql .= "teach_comp_exam_date='$teach_comp_exam_date',gsis_no='$gsis_no',level_civil_service ='$level_civil_service',";
         $sql .= "employee='$employee',employee_type='$employee_type',position='$position',";
         $sql .= "philhealth_no='$philhealth_no',prc_license='$prc_license',lbp_no='$lbp_no',";
-        $sql .= "pag_ibig_no='$pag_ibig_no' WHERE tin_num='$tin_num'";
+        $sql .= "pag_ibig_no='$pag_ibig_no',subject='$subject',tle_strand='$tle_strand',";
+        $sql .= "tle_component='$tle_component',grade_level='$grade_level' WHERE tin_num='$tin_num'";
 
         if($db->query($sql)) {
             redirect('/divoffadmin/admin/mydetails/'.$tin_num);
@@ -183,34 +208,40 @@ $emp_other_info = $fetch_other_info->fetch_array();
       </td>
     </tr> -->
   <table class="table table-bordered bg-white table-official table-striped">  
+  <thead>
+    <tr>
+      <th colspan="4" class="text-center">Type of Employee</th>
+    </tr>
+  </thead>
   <tbody>  
+
 
     <tr>
       <?php 
 
         if($emp_other_info['employee'] == 'NON-TEACHING') {
 
-          echo "<td class='person-info'><label onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING' checked> NON-TEACHING</label></td>
-                <td class='person-info' colspan='2'><label onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
-                <td class='person-info'><label onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
+          echo "<td class='person-info'><label id='non-teaching-radio' onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' id='non-teaching-input' value='NON-TEACHING' checked> NON-TEACHING</label></td>
+                <td class='person-info' colspan='2'><label id='teaching-radio' onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
+                <td class='person-info'><label id='sdo-based-radio' onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
 
         }elseif($emp_other_info['employee'] == 'TEACHING') {
 
-          echo "<td class='person-info'><label onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
-                <td class='person-info' colspan='2'><label onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING' checked> TEACHING</label></td>
-                <td class='person-info'><label onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
+          echo "<td class='person-info'><label id='non-teaching-radio' onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
+                <td class='person-info' colspan='2'><label id='teaching-radio' onclick='undisable_teacher_type()'><input id='teaching-input' type='radio' name='employee'  value='TEACHING' checked> TEACHING</label></td>
+                <td class='person-info'><label id='sdo-based-radio' onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
                 
         }elseif($emp_other_info['employee'] == 'SDO BASED PERSONNEL') {
 
-          echo "<td class='person-info'><label onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
-                <td class='person-info' colspan='2'><label onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
-                <td class='person-info'><label onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL' checked> SDO BASED PERSONNEL</label></td>";
+          echo "<td class='person-info'><label id='non-teaching-radio' onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
+                <td class='person-info' colspan='2'><label id='teaching-radio' onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
+                <td class='person-info'><label id='sdo-based-radio' onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL' checked> SDO BASED PERSONNEL</label></td>";
                 
         }else {
 
-          echo "<td class='person-info'><label onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
-                <td class='person-info' colspan='2'><label onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
-                <td class='person-info'><label onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
+          echo "<td class='person-info'><label id='non-teaching-radio' onclick='disable_teacher_and_sdo()'><input type='radio' name='employee' value='NON-TEACHING'> NON-TEACHING</label></td>
+                <td class='person-info' colspan='2'><label id='teaching-radio' onclick='undisable_teacher_type()'><input type='radio' name='employee'  value='TEACHING'> TEACHING</label></td>
+                <td class='person-info'><label id='sdo-based-radio' onclick='undisable_sdo_type()'><input type='radio' name='employee' value='SDO BASED PERSONNEL'> SDO BASED PERSONNEL</label></td>";
         }
 
 
@@ -532,6 +563,115 @@ $emp_other_info = $fetch_other_info->fetch_array();
 
       </td>
     </tr>
+
+
+
+    <tr class="subjectToggle">
+
+      <td class="asked-info" >Subject</td>
+
+      <td colspan="3">
+        <select class="form-control" id="subjects" name="subject">
+          <option class="subjectDefault" value=""></option>
+          <?php $subjects_count = count($other_info->subjects_choices()); 
+              $subject_array = $other_info->subjects_choices(); ?>
+          <?php for($i = 0; $i < $subjects_count; $i++) : ?>
+              <?php if ($subject_array[$i] === $emp_other_info['subject']) {  ?>
+              <option value="<?php echo $subject_array[$i]; ?>" selected><?php echo $subject_array[$i]; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $subject_array[$i]; ?>"><?php echo $subject_array[$i]; ?></option> 
+              <?php } ?>
+          <?php endfor; ?>  
+        </select>
+      </td>
+
+    </tr> 
+
+    <tr class="subjectToggle">
+      <td class="asked-info">Area</td>
+      <td colspan="3">
+        <select class="form-control" id="tleStrands" name="tle_strand" disabled>
+          <option class="tleStrandsDefault" value=""></option>
+          <?php $tle_strands_count = count($other_info->tle_strands()); 
+              $tle_strands_array = $other_info->tle_strands(); ?>
+          <?php for($i = 0; $i < $tle_strands_count; $i++) : ?>
+            <?php if ($tle_strands_array[$i] === $emp_other_info['tle_strand']) { ?>
+              <option value="<?php echo $tle_strands_array[$i]; ?>" selected><?php echo $tle_strands_array[$i]; ?></option>
+            <?php } else { ?>
+              <option value="<?php echo $tle_strands_array[$i]; ?>"><?php echo $tle_strands_array[$i]; ?></option>
+            <?php } ?>  
+          <?php endfor; ?>  
+        </select>
+      </td>
+    </tr>
+    
+    <tr class="subjectToggle">  
+      <td class="asked-info">Component</td>
+      <td colspan="3">
+      <select class="form-control" id="components" name="tle_component" disabled>
+        <option class="componentDefault" value=""></option>
+        <!-------------------------------  HOME ECONOMICS COMPONENTS ----------------------------------->
+
+        <?php $tle_he_count = count($other_info->tle_he_component()); 
+            $tle_he_array = $other_info->tle_he_component(); ?>
+        <?php for($i = 0; $i < $tle_he_count; $i++) : ?>
+          <?php if ($tle_he_array[$i] == $emp_other_info['tle_component']) { ?>
+            <option class="heComponent" value="<?php echo $tle_he_array[$i]; ?>" selected><?php echo $tle_he_array[$i]; ?></option>
+          <?php } else { ?>
+            <option class="heComponent" value="<?php echo $tle_he_array[$i]; ?>"><?php echo $tle_he_array[$i]; ?></option>  
+          <?php } ?>  
+        <?php endfor; ?>
+
+        <!-------------------------------  AGRI-FISHERY ARTS COMPONENTS ----------------------------------->
+
+        <?php $tle_afa_count = count($other_info->tle_afa_component()); 
+            $tle_afa_array = $other_info->tle_afa_component(); ?>
+        <?php for($i = 0; $i < $tle_afa_count; $i++) : ?>
+          <?php if ($tle_afa_array[$i] == $emp_other_info['tle_component']) { ?>
+            <option class="afaComponent" value="<?php echo $tle_afa_array[$i]; ?>" selected><?php echo $tle_afa_array[$i]; ?></option>
+          <?php } else { ?>
+            <option class="afaComponent" value="<?php echo $tle_afa_array[$i]; ?>"><?php echo $tle_afa_array[$i]; ?></option>  
+          <?php } ?>   
+        <?php endfor; ?>
+
+        <!-------------------------------  INDUSTRIAL ARTS COMPONENTS ----------------------------------->
+
+        <?php $tle_ia_count = count($other_info->tle_ia_component()); 
+            $tle_ia_array = $other_info->tle_ia_component(); ?>
+        <?php for($i = 0; $i < $tle_ia_count; $i++) : ?>
+          <?php if ($tle_ia_array[$i] == $emp_other_info['tle_component']) { ?>
+            <option class="iaComponent" value="<?php echo $tle_ia_array[$i]; ?>" selected><?php echo $tle_ia_array[$i]; ?></option>
+          <?php } else { ?>
+            <option class="iaComponent" value="<?php echo $tle_ia_array[$i]; ?>"><?php echo $tle_ia_array[$i]; ?></option>
+          <?php } ?>  
+        <?php endfor; ?>
+
+        <!-------------------------  INFORMATION COMM. AND TECH. COMPONENTS ------------------------------>
+
+        <?php $tle_ict_count = count($other_info->tle_ict_component()); 
+            $tle_ict_array = $other_info->tle_ict_component(); ?>
+        <?php for($i = 0; $i < $tle_ict_count; $i++) : ?>
+          <?php if ($tle_ict_array[$i] == $emp_other_info['tle_component']) { ?>
+            <option class="ictComponent edit_ict_component" value="<?php echo $tle_ict_array[$i]; ?>" selected><?php echo $tle_ict_array[$i]; ?></option>
+          <?php } else { ?>
+            <option  class="ictComponent edit_ict_component" value="<?php echo $tle_ict_array[$i]; ?>"><?php echo $tle_ict_array[$i]; ?></option>
+          <?php } ?>  
+        <?php endfor; ?>
+
+      </select> 
+
+        
+      </td>
+    </tr>
+    <tr class="subjectToggle">
+      <td class="asked-info">Grade Level</td>
+      <td colspan="3"><input class="form-control" type="text" name="grade_level" value="<?php echo $emp_other_info['grade_level']; ?>"></td>
+    </tr> 
+
+
+
+
+    
     <tr>
       <td colspan="2" class="asked-info">Levels of Civil Service Elegibility</td>
       <td colspan="2" class="person-info">
@@ -552,6 +692,22 @@ $emp_other_info = $fetch_other_info->fetch_array();
         </select>
       </td>
     </tr>
+
+  </tbody>
+  </table> 
+
+
+<!-------------------------------------- GOVERNMENT IDENTIFICATION TABLE ---------------------------------------------->  
+
+  <table class="table table-bordered bg-white table-official table-striped">  
+  <thead>
+    <tr>
+      <th colspan="4" class="text-center">Government Number</th>
+    </tr>
+  </thead>
+  <tbody>  
+
+
     <tr>
       <td class="asked-info" style="width: 225px;">G.S.I.S B.P. No.</td>
       <td class="person-info" colspan="3"><input class="form-control" type="text" name="gsis_no" value="<?php echo $emp_other_info['gsis_no']; ?>"></td>

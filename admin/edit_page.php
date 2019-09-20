@@ -217,35 +217,60 @@ $(function () {
 
 </script>
 
+<script src="/divoffadmin/admin/js/other_info_script.js"></script>
+
   <script>
+    var non_teacher_position = document.getElementById("non_teacher_position");
+    var non_teacher_type = document.getElementById("non_teacher_type");
+    var employee_sdo_type = document.getElementById("employee_sdo_type");
+    var employee_sdo_position = document.getElementById("employee_sdo_position");
+    var employee_teacher_type = document.getElementById("employee_teacher_type");
+    var teacher_position = document.getElementById("teacher_position");
 
+    function disableToTrue(type) {
+      type.disabled = true;
+    }
+
+    function disableToFalse(type) {
+      type.disabled = false;
+    }
+
+
+  // ========== THIS ARE THE FUNCTIONS WHEN RADIO BUTTONS ARE CLICKED THEN IT WILL BE DISABLED OR NOT  ===== //
       function undisable_teacher_type() {
-        document.getElementById("non_teacher_position").disabled = true;
-        document.getElementById("non_teacher_type").disabled = true;
-        document.getElementById("employee_sdo_type").disabled = true;
-        document.getElementById("employee_sdo_position").disabled = true;
-        document.getElementById("employee_teacher_type").disabled = false;
-        document.getElementById("teacher_position").disabled = false;
-
+        $(".subjectToggle").show();
+        // disabled types
+        disableToTrue(non_teacher_position);
+        disableToTrue(non_teacher_type);
+        disableToTrue(employee_sdo_type);
+        disableToTrue(employee_sdo_position);
+        // undisabled
+        disableToFalse(employee_teacher_type);
+        disableToFalse(teacher_position);
       }
 
       function disable_teacher_and_sdo() {
-        document.getElementById("employee_teacher_type").disabled = true;
-        document.getElementById("employee_sdo_type").disabled = true;
-        document.getElementById("employee_sdo_position").disabled = true;
-        document.getElementById("teacher_position").disabled = true;
-        document.getElementById("non_teacher_position").disabled = false;
-        document.getElementById("non_teacher_type").disabled = false;
+        // disabled types
+        disableToTrue(employee_teacher_type); 
+        disableToTrue(employee_sdo_type);
+        disableToTrue(employee_sdo_position);
+        disableToTrue(teacher_position);
+        // undisabled
+        disableToFalse(non_teacher_position);
+        disableToFalse(non_teacher_type);
       }
 
       function undisable_sdo_type() {
-        document.getElementById("employee_teacher_type").disabled = true;
-        document.getElementById("teacher_position").disabled = true;
-        document.getElementById("non_teacher_position").disabled = true;
-        document.getElementById("non_teacher_type").disabled = true;
-        document.getElementById("employee_sdo_type").disabled = false;
-        document.getElementById("employee_sdo_position").disabled = false;
+        // disabled types
+        disableToTrue(employee_teacher_type)
+        disableToTrue(teacher_position)
+        disableToTrue(non_teacher_position)
+        disableToTrue(non_teacher_type)
+        // undisabled
+        disableToFalse(employee_sdo_type);
+        disableToFalse(employee_sdo_position);
       }
+
 
       function isNumberKey(evt)
       {

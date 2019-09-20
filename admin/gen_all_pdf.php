@@ -30,7 +30,7 @@
           <!-- Page Heading -->
           <div class="row">
           <div class="col-md-12 mb-3">
-            <a class="btn btn-primary float-right" href="summary_excel.php" target="_blank">Generate Summary in Excel</a>
+            <a class="btn btn-primary float-right" href="summary_excel.php" target="_blank"><i class="fas fa-download"></i> Generate Summary in Excel</a>
           </div>
           </div>
           <!-- Page Heading -->

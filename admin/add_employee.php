@@ -31,6 +31,14 @@
             <?php echo $message; ?>
 
 
+          <div class="row">
+            <div class="col-xl-12 col-md-7 mb-0 mt-1">
+            <h3 class="float-right  mr-3">( <span class="required-info">*</span> = Required)</h3>
+          </div>
+          </div>
+
+
+
 
 <?php
 

@@ -17,7 +17,7 @@ require_once '../includes/init.php';
 			$employee  = trim($db->fix_string($_GET['employee']));
 		}
 		
-		$position 	   = trim($db->fix_string($_GET['position']));
+			$position = trim($db->fix_string($_GET['position']));
 
 		if($_GET['school_name'] == "no_value") {
 			$school_name = '';

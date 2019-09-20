@@ -63,7 +63,12 @@
       <td class="asked-info" style="width: 225px;">Date Taken</td>
       <td class="person-info"><?php // echo $emp_other_info['teach_comp_exam_date']; ?></td>      
     </tr> -->
-  <table class="table table-bordered bg-white table-official table-striped">  
+  <table class="table table-bordered bg-white table-official table-striped">
+    <thead>
+    <tr>
+      <th colspan="4" class="text-center">Type of Employee</th>
+    </tr>
+  </thead>  
   <tbody>  
       <td class="asked-info" style="width: 225px;">Employee</td>
       <td class="person-info"><?php echo $emp_other_info['employee']; ?></td>
@@ -75,11 +80,53 @@
       <td class="person-info" colspan="3"><?php echo $emp_other_info['position']; ?></td>
       <!-- <td colspan="2"></td> -->
     </tr>
+
+    <?php if ($emp_other_info['subject'] !== "") : ?>
+
+    <tr>
+      <td class="asked-info" style="width: 225px;">Subject</td>
+      <td class="person-info" colspan="3"><?php echo strtoupper($emp_other_info['subject']); ?></td>
+    </tr>
+
+    <?php if ($emp_other_info['subject'] == "Technology and Livelihood Education (TLE)") { ?>
+
+    <tr>
+      <td class="asked-info" style="width: 225px;">Area</td>
+      <td class="person-info" colspan="3"><?php echo strtoupper($emp_other_info['tle_strand']); ?></td>
+    </tr>
+
+    <tr>
+      <td class="asked-info" style="width: 225px;">Component</td>
+      <td class="person-info" colspan="3"><?php echo strtoupper($emp_other_info['tle_component']); ?></td>
+    </tr>
+
+    <?php } ?>
+
+    <tr>
+      <td class="asked-info" style="width: 225px;">Grade Level</td>
+      <td class="person-info" colspan="3"><?php echo strtoupper($emp_other_info['grade_level']); ?></td>
+    </tr>            
+
+    <?php endif; ?>
+
     <tr>
       <td style="width: 270px;" class="asked-info">Levels of Civil Service Elegibility</td> 
-      <td class="person-info"><?php echo $emp_other_info['level_civil_service']; ?></td>
+      <td class="person-info" colspan="3"><?php echo $emp_other_info['level_civil_service']; ?></td>
+    </tr>
+  </tbody>    
+  </table>
+
+
+
+  <table class="table table-bordered bg-white table-official table-striped">
+    <thead>
+    <tr>
+      <th colspan="4" class="text-center">Government Numbers</th>
+    </tr>
+  </thead>  
+  <tbody>  
       <td class="asked-info" style="width: 175px;">Pag-IBIG No.</td>
-      <td class="person-info"><?php echo $emp_other_info['pag_ibig_no']; ?></td>        
+      <td class="person-info" colspan="3"><?php echo $emp_other_info['pag_ibig_no']; ?></td>        
     </tr>
     <tr>
       <td class="asked-info" style="width: 225px;">G.S.I.S B.P. No.</td>

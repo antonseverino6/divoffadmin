@@ -177,7 +177,86 @@ class Other_info {
     }        
 
 
-    // public function 
+    // ======================================= FOR SUBJECT INPUTS ============================================ //
+
+
+    public function subjects_choices() {
+        return [
+
+            "Filipino",
+            "English",
+            "Mathematics",
+            "Science",
+            "Araling Panlipunan Edukasyon sa Pagpapahalaga (EsP)",
+            "MAPEH",
+            "Technology and Livelihood Education (TLE)"
+
+        ];
+    }
+
+    public function tle_strands() {
+        return [
+
+            "Home Economics (HE)",
+            "Agri-Fishery Arts (AFA)",
+            "Industrial Arts (IA)",
+            "Information and Communication Technology (ICT)"
+
+        ];
+    }
+
+    public function tle_he_component() {
+        return [
+
+            "Beauty Care",
+            "Caregiving",
+            "Cookery",
+            "Dressmaking",
+            "Front Office Services",
+            "Handicraft",
+            "Household Services",
+            "Travel Services",
+            "Wellness Massage"
+
+        ];
+    }
+
+    public function tle_afa_component() {
+        return [
+
+            "Agri-Crop Production",
+            "Animal Production",
+            "Aquaculture",
+            "Fish Processing"
+
+        ];
+    }
+
+    public function tle_ia_component() {
+        return [
+
+            "Automotive Servicing",
+            "Carpentry",
+            "Electrical Installation and Maintenance",
+            "Electronic Products Assembly and Servicing",
+            "Masonry",
+            "Plumbing",
+            "Refrigeration and Airconditioning",
+            "Shielded Metal Arc Welding"
+
+        ];
+    }
+
+    public function tle_ict_component() {
+        return [
+
+            "Computer Systems Servicing",
+            "Contact Center Services",
+            "Illustration",
+            "Technical Drafting"
+
+        ];
+    } 
 
     public function employee_count($employee) {
         global $db;
