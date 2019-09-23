@@ -34,12 +34,12 @@
 -->
 
           <!-- Content Row -->
-          <div class="row ml-1">
+    <div class="row ml-1 mb-2">
 			<form method="get" action="" id="search_count_form">
 				<div class="form-row">
           <div class="col">
             <label class="control-label">School</label>
-            <select name="school_name">
+            <select id="school_name" name="school_name">
               <option value="no_value"></option>
               <?php $school_name_query = $info->school_name_choices(); ?>
               <?php while($row = $school_name_query->fetch_array()) : ?>
@@ -52,16 +52,26 @@
             <label class="control-label">Employee</label>
 						<select id="employee" name="employee">
 							<option value="no_value"></option>
-							<option value="NON-TEACHING">NON-TEACHING</option>
-							<option value="TEACHING">TEACHING</option>
-							<option value="SDO BASED PERSONNEL">SDO BASED PERSONNEL</option>
+							<option class="non_teaching" value="NON-TEACHING">NON-TEACHING</option>
+							<option class="teaching" value="TEACHING">TEACHING</option>
+							<option class="sdo_based_personnel" value="SDO BASED PERSONNEL">SDO BASED PERSONNEL</option>
 						</select>
+
+            <label class="control-label">Subject</label>
+            <select id="subjects" name="subject" disabled>
+              <option class="subjectDefault" value="no_value"></option>
+              <?php $subjects_count = count($other_info->subjects_choices()); 
+                  $subject_array = $other_info->subjects_choices(); ?>
+              <?php for($i = 0; $i < $subjects_count; $i++) : ?>
+                  <option value="<?php echo $subject_array[$i]; ?>"><?php echo $subject_array[$i]; ?></option>
+              <?php endfor; ?>  
+            </select>
 					</div>
 
 					<div class="col">
             <label class="control-label">Employee Type</label>
-            <select name="employee_type">
-              <option value=""></option>
+            <select id="employee_type" name="employee_type">
+              <option value="no_value"></option>
               <?php 
                 $teacher_count = count($other_info->teacher_choices());
                 $teacher_arr = $other_info->teacher_choices();
@@ -75,11 +85,22 @@
                       <option class="sdo_based_type" value="<?php echo $sdo_based_arr[$i]; ?>"><?php echo $sdo_based_arr[$i]; ?></option>
               <?php endfor; ?>  
             </select>
+
+
+            <label class="control-label">Area</label>
+            <select id="tleStrands" name="tle_strand" disabled>
+              <option class="tleStrandsDefault" value="no_value"></option>
+              <?php $tle_strands_count = count($other_info->tle_strands()); 
+                  $tle_strands_array = $other_info->tle_strands(); ?>
+              <?php for($i = 0; $i < $tle_strands_count; $i++) : ?>
+                  <option class="tle_strands" value="<?php echo $tle_strands_array[$i]; ?>"><?php echo $tle_strands_array[$i]; ?></option>
+              <?php endfor; ?>  
+            </select>
 					</div>	
 					
 					<div class="col">
             <label class="control-label">Position</label>
-            <select name="position">
+            <select id="position" name="position">
               <option value=""></option>
               <?php 
                 $teaching_count = count($other_info->teaching_choices());
@@ -100,13 +121,53 @@
                       <option class="sdo_based_position" value="<?php echo $sdo_based_arr[$i]; ?>"><?php echo $sdo_based_arr[$i]; ?></option>
               <?php endfor; ?> 
             </select>
+
+            <label class="control-label">Component</label>
+            <select id="components" name="tle_component" disabled>
+              <option class="componentDefault" value="no_value"></option>
+              <!-------------------------------  HOME ECONOMICS COMPONENTS ----------------------------------->
+
+              <?php $tle_he_count = count($other_info->tle_he_component()); 
+                  $tle_he_array = $other_info->tle_he_component(); ?>
+              <?php for($i = 0; $i < $tle_he_count; $i++) : ?>
+                  <option class="heComponent" value="<?php echo $tle_he_array[$i]; ?>"><?php echo $tle_he_array[$i]; ?></option>
+              <?php endfor; ?>
+
+              <!-------------------------------  AGRI-FISHERY ARTS COMPONENTS ----------------------------------->
+
+              <?php $tle_afa_count = count($other_info->tle_afa_component()); 
+                  $tle_afa_array = $other_info->tle_afa_component(); ?>
+              <?php for($i = 0; $i < $tle_afa_count; $i++) : ?>
+                  <option class="afaComponent" value="<?php echo $tle_afa_array[$i]; ?>"><?php echo $tle_afa_array[$i]; ?></option>
+              <?php endfor; ?>
+
+              <!-------------------------------  INDUSTRIAL ARTS COMPONENTS ----------------------------------->
+
+              <?php $tle_ia_count = count($other_info->tle_ia_component()); 
+                  $tle_ia_array = $other_info->tle_ia_component(); ?>
+              <?php for($i = 0; $i < $tle_ia_count; $i++) : ?>
+                  <option class="iaComponent" value="<?php echo $tle_ia_array[$i]; ?>"><?php echo $tle_ia_array[$i]; ?></option>
+              <?php endfor; ?>
+
+              <!-------------------------  INFORMATION COMM. AND TECH. COMPONENTS ------------------------------>
+
+              <?php $tle_ict_count = count($other_info->tle_ict_component()); 
+                  $tle_ict_array = $other_info->tle_ict_component(); ?>
+              <?php for($i = 0; $i < $tle_ict_count; $i++) : ?>
+                  <option class="ictComponent" value="<?php echo $tle_ict_array[$i]; ?>"><?php echo $tle_ict_array[$i]; ?></option>
+              <?php endfor; ?>
+
+            </select> 
 					</div>
 					
 					<div class="col">
             <label class="control-label">&nbsp;</label><br>
 						<button type="button" name="submit_search" value="search" id="search_count_btn">Search</button>
 					</div>
-					
+          <div class="col">
+            <label class="control-label">&nbsp;</label><br>
+            <button type="button" name="submit_search" value="reset" id="reset_btn">Reset</button>
+          </div>	
 				</div>
 
 
@@ -200,104 +261,9 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
-  <script>
-  	$(document).ready(function() {
-      var employee = $("#employee");
-      var sdo_based_type = $(".sdo_based_type");
-      var teacher_and_non_teacher_type = $(".teacher_type");
-      var sdo_based_position = $(".sdo_based_position");
-      var non_teaching_position = $(".non_teaching_position");
-      var teaching_position = $(".teaching_position");
 
-      // if (employee.val() === '') {
-        $("#employee").on("change", function() {
+ <script src="js/search_count_script.js"></script>
 
-          switch(employee.val()) {
-            case 'NON-TEACHING':
-              sdo_based_type.attr("disabled","true");
-              teaching_position.attr("disabled","true");
-              sdo_based_position.attr("disabled","true");
-              if (teacher_and_non_teacher_type.attr("disabled")) {
-                teacher_and_non_teacher_type.removeAttr("disabled");
-              }
-              if (non_teaching_position.attr("disabled")) {
-                non_teaching_position.removeAttr("disabled");
-              }   
-            break;
-            case 'TEACHING':
-              sdo_based_type.attr("disabled","true");
-              non_teaching_position.attr("disabled","true");
-              sdo_based_position.attr("disabled","true");
-              if (teacher_and_non_teacher_type.attr("disabled")) {
-                teacher_and_non_teacher_type.removeAttr("disabled");
-              }
-              if (teaching_position.attr("disabled")) {
-                teaching_position.removeAttr("disabled");
-              }  
-            break;
-            case 'SDO BASED PERSONNEL':
-              teacher_and_non_teacher_type.attr("disabled","true");
-              non_teaching_position.attr("disabled","true");
-              teaching_position.attr("disabled","true");
-              if (sdo_based_type.attr("disabled")) {
-                sdo_based_type.removeAttr("disabled");
-              }
-              if (sdo_based_position.attr("disabled")) {
-                sdo_based_position.removeAttr("disabled");
-              }
-
-            break;
-            default :
-              if (sdo_based_type.attr("disabled")) {
-                sdo_based_type.removeAttr("disabled");
-              } else if (teacher_and_non_teacher_type.attr("disabled")) {
-                teacher_and_non_teacher_type.removeAttr("disabled");
-              } else if (sdo_based_type.attr("disabled") && teacher_and_non_teacher_type.attr("disabled")) {
-                sdo_based_type.removeAttr("disabled");
-                teacher_and_non_teacher_type.removeAttr("disabled");
-              }
-              if (non_teaching_position.attr("disabled")) {
-                non_teaching_position.removeAttr("disabled");
-              }
-              if (teaching_position.attr("disabled")) {
-                teaching_position.removeAttr("disabled");
-              }  
-              if (sdo_based_position.attr("disabled")) {
-                sdo_based_position.removeAttr("disabled");
-              }   
-            break;
-          }
-
-        });        
-      // }
-
-
-
-      // AJAX CALL FOR SEARCH
-
-  		$("#search_count_btn").click(function() {
-  			$.ajax({
-  				url: "ajax/search_count.php",
-  				type: "GET",
-  				data: $('#search_count_form').serialize(),
-  				success: function(d) {
-  					$("#search_count_tbody").html(d);
-  				}
-  			});
-  		});
-
-  		$("#search_count_btn").click(function() {
-  			$.ajax({
-  				url: "ajax/count_of_results.php",
-  				type: "GET",
-  				data: $('#search_count_form').serialize(),
-  				success: function(d) {
-  					$("#number_of_results").html(d);
-  				}
-  			});
-  		});  		
-  	});
-  </script>
 
 </body>
 

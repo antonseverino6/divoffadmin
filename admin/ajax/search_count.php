@@ -69,10 +69,91 @@ require_once '../includes/init.php';
 		}elseif($school_name == '') {
 			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE position='$position' AND employee_type='$employee_type' AND employee= '$employee'";
 			$result = $db->query($sql);
-		}else {
+		}elseif($school_name !== '' && $employee !== '' && $employee_type !== '' && $position !== '') {
 			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE position='$position' AND employee_type='$employee_type' AND employee= '$employee' AND school_name='$school_name'";
 			$result = $db->query($sql);
 		}
+
+
+
+		// ======================== THIS IS FOR THE SUBJECT ======================================= //
+
+		subject school_name , subject employee, subject employee_type, subject area
+
+		elseif($school_name == '' && $employee == '' && $employee_type == '' && $position == '' && $area == '' && $component == '') { // this is for the subject only
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject'";
+		}
+
+		elseif($employee == '' && $employee_type == '' && $position == '' && $area == '' && $component == '') { // subject and school name 
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name'";
+		}
+
+		elseif($employee_type == '' && $position == '' && $area == '' && $component == '') { // subject , school name and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee'";	
+		}
+
+		elseif($position == '' && $area == '' && $component == '') { // subject , school name , employee type and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type'";	
+		}
+
+		elseif($area == '' && $component == '') { // subject , school name , employee type , position and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND position = '$position'";	
+		}
+
+
+		// ========================= THIS IS FOR THE AREA ======================================// 
+
+
+		elseif() { // this is for the subject and area only
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND area = '$area'";
+		}
+
+		elseif() { // subject and school name 
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND area = '$area'";
+		}
+
+		elseif() { // subject , area , school name and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND area = '$area'";	
+		}
+
+		elseif() { // subject , area , school name , employee type and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND area = '$area'";	
+		}
+
+		elseif() { // subject , area , school name , employee type , position and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND position = '$position' AND area = '$area'";	
+		}
+
+
+		// ========================= THIS IS FOR THE COMPONENT ======================================// 
+
+
+		elseif() { // this is for the subject and area only
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND area = '$area' AND component = '$component'";
+		}
+
+		elseif() { // subject and school name 
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND area = '$area' AND component = '$component'";
+		}
+
+		elseif() { // subject , area , school name and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND area = '$area' AND component = '$component'";	
+		}
+
+		elseif() { // subject , area , school name , employee type and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND area = '$area' AND component = '$component'";	
+		}
+
+		elseif() { // subject , area , school name , employee type , position and employee
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND position = '$position' AND area = '$area' AND component = '$component'";	
+		}
+
+
+		// ========================= THIS IS FOR ALL ======================================// 
+
+		elseif() { 
+			$sql = "SELECT info.id,info.first_name,info.last_name,other_info.employee,other_info.employee_type,info.tin_num,other_info.position,info.school_name FROM info JOIN other_info ON info.tin_num = other_info.tin_num WHERE subject = '$subject' AND school_name = '$school_name' AND employee = '$employee' AND employee_type = '$employee_type' AND position = '$position' AND area = '$area' AND component = '$component'";	
+		}		
 
 		if($result !== '') {
 			if($result->num_rows > 0) {

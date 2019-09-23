@@ -158,7 +158,7 @@ $(document).ready(function() {
 			default :
 				disableComponent("heComponent");
 				disableComponent("afaComponent");
-				disableComponent("aiComponent");
+				disableComponent("iaComponent");
 				disableComponent("ictComponent");					
 
 				document.querySelector(".componentDefault").setAttribute("selected","true");
